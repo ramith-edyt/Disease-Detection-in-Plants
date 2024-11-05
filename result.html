@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        h1 {
+            color: #28a745;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .result-card {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .result-card h2 {
+            color: #007bff;
+        }
+        .result-card p {
+            font-size: 1.1em;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        ul li {
+            margin-bottom: 10px;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .btn {
+            margin-top: 20px;
+            display: block;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Prediction Result</h1>
+    
+    <div class="result-card p-4">
+        <p><strong>Detected Disease:</strong> {{ result }}</p>
+        <p><strong>Recommended Remedy:</strong> {{ remedy }}</p>
+        
+        <h2>Purchase Links</h2>
+        <ul>
+            {% for product, link in purchase_links.items() %}
+            <li><a href="{{ link }}" target="_blank">{{ product }}</a></li>
+            {% endfor %}
+        </ul>
+        
+        <a href="/" class="btn btn-success">Upload Another Image</a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
